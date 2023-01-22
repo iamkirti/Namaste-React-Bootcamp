@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import Header from "./Header";
 
 const heading = React.createElement("div", { className: "title" }, [
@@ -16,7 +17,7 @@ const heading1 = (
   </div>
 );
 
-const ChangeComponent = () => <h2>0 to hero in chane component</h2>;
+const ChangeComponent = () => <h2>0 to hero in change component</h2>;
 const HeadingComponent = () => {
   return (
     <div className="title">
