@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 const HeaderComponent = () => {
   return (
     <header className="header">
-      <div className="h-logo">
+      <div className="header-logo">
         <img
           src="https://www.seoclerk.com/pics/000/834/682/e29993eec8a393585b726e72239cf524.jpg"
           alt="logo"
@@ -17,8 +17,6 @@ const HeaderComponent = () => {
       <div className="userprofile">
         <img
           src="https://img.icons8.com/cotton/512/gender-neutral-user.png"
-          width={"60"}
-          height={"60"}
           alt="user icon"
         ></img>
       </div>
