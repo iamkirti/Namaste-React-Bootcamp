@@ -3,15 +3,14 @@ import ReactDOM from "react-dom/client";
 
 import CardComponent from "./CardComponent";
 import team from "./UserDetails.json";
-import { title } from "./constants";
-import { image } from "./constants";
+import { TITLE, IMAGE } from "./constants";
 import Searchbar from "./SearchBar";
 
 const HeaderComponent = () => {
   return (
     <div className="header-container">
-      <h2 className="header-container-left">{title}</h2>
-      <img src={image} alt="banner" />
+      <h2 className="header-container-left">{TITLE}</h2>
+      <img src={IMAGE} alt="banner" />
     </div>
   );
 };
@@ -26,11 +25,10 @@ const HeaderComponent = () => {
 //   },
 // ];
 
-const CardContainer = ({ filteredEmp }) => {
-  return filteredEmp.map((empdetail) => {
-    return <CardComponent details={empdetail} key={empdetail.id} />;
+const CardContainer = ({ filteredEmp }) =>
+  filteredEmp.map((empDetail) => {
+    return <CardComponent details={empDetail} key={empDetail.id} />;
   });
-};
 
 const BodyComponent = () => {
   const [filteredEmp, setFilteredEmp] = useState(team);

@@ -3,7 +3,7 @@ const CardComponent = ({ details }) => {
   return (
     <div id="card" className="card">
       <div className="card-dp">
-        <img src={img} alt="DisplayPic"></img>
+        <img src={img} alt="Employee Image"></img>
       </div>
 
       <div className="card-content">

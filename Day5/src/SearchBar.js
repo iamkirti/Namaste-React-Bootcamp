@@ -1,31 +1,27 @@
 import { useState } from "react";
 
 import data from "./UserDetails.json";
-
-const searchEmployees = (searchText) => {
-  return data.filter((emp) =>
-    emp.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
-  );
-};
+import { searchEmployees } from "./utils";
 
 const Searchbar = ({ setFilteredEmp }) => {
-  //const searchText="kirti";
   const [searchText, setSearchText] = useState("");
 
+  const handleChange = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //If no input is provided then display all the data
+    if ((e.target.value = "")) {
+      setFilteredEmp(data);
+      return;
+    }
+    const filteredEmployees = searchEmployees(searchText, data);
+    setFilteredEmp(filteredEmployees);
+  };
   return (
-    <form
-      className="search-bar"
-      onSubmit={(e) => {
-        e.preventDefault();
-        if ((e.target.value = "")) {
-          setFilteredEmp(data);
-          return;
-        }
-        const filteredEmployees = searchEmployees(searchText);
-        console.log(filteredEmployees);
-        setFilteredEmp(filteredEmployees);
-      }}
-    >
+    <form className="search-bar" onSubmit={handleSubmit}>
       <div className="search-bar-iconcontainer">
         <i className="fa-solid fa-magnifying-glass"></i>
       </div>
@@ -33,9 +29,7 @@ const Searchbar = ({ setFilteredEmp }) => {
         id="search"
         placeholder="Search"
         value={searchText}
-        onChange={(e) => {
-          setSearchText(e.target.value);
-        }}
+        onChange={handleChange}
       ></input>
     </form>
   );
